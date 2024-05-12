@@ -3,6 +3,9 @@ PROJECT="MoviesAPI"
 init:
 	pip install -r requirements.txt
 
+save_req:
+	pip freeze > requirements.txt
+
 start:
 	python movies/manage.py runserver
 
@@ -16,8 +19,6 @@ superuser:
 cc:
 	black movies
 	isort movies
-	pylint movies
-	mypy movies
 
 .PHONY: init migrate start
 .DEFALT_GOAL: init

@@ -1,10 +1,11 @@
 import os
 import sys
+
 from dotenv import load_dotenv
 
 
 def load_env():
-    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+    dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
     if os.path.exists(dotenv_path):
         load_dotenv(dotenv_path)
 
@@ -13,7 +14,7 @@ def main():
     """Run administrative tasks."""
     load_env()
 
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'movies.settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "movies.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -25,5 +26,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
